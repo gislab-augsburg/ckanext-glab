@@ -274,7 +274,7 @@ class MyCoolPlugin(SingletonPlugin):
 ##            LOG.info("member_create is already defined in ckanext-data-qld")
 ##        except ImportError:
 ##            auth_functions['member_create'] = auth.member_create
-##        return auth_functions
+        return auth_functions
 
     # IValidators
 
