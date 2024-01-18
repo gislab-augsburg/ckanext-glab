@@ -2,15 +2,16 @@
 
 # ckanext-glab
 
-**TODO:** Put a description of your extension here:  What does it do? What features does it have? Consider including some screenshots or embedding a video!
+Ckanext-glab provides functionality to GDPR regulations with its module gdpr:
+- API access on user_list und user_show is limited to system and organization admins. 
+- GUI access user list, user details and user activity is limited to system and organization admins. 
+- API user_show, GUI user details and user activity is still available for a user's own account.
+Organinization admins need access for user management of their organizations.
+
+Most of the code is extracted from https://github.com/qld-gov-au/ckanext-qgov.
 
 
 ## Requirements
-
-**TODO:** For example, you might want to mention here which versions of CKAN this
-extension works with.
-
-If your extension works across different versions you can add the following table:
 
 Compatibility with core CKAN versions:
 
@@ -19,23 +20,13 @@ Compatibility with core CKAN versions:
 | 2.6 and earlier | not tested    |
 | 2.7             | not tested    |
 | 2.8             | not tested    |
-| 2.9             | not tested    |
-
-Suggested values:
-
-* "yes"
-* "not tested" - I can't think of a reason why it wouldn't work
-* "not yet" - there is an intention to get it working
-* "no"
+| 2.9             | yes           |
+| 2.10            | not tested    |
 
 
 ## Installation
 
-**TODO:** Add any additional install steps to the list below.
-   For example installing any non-Python dependencies or adding any required
-   config settings.
-
-To install ckanext-glab:
+To install ckanext-glab GDPR functions:
 
 1. Activate your CKAN virtual environment, for example:
 
@@ -46,9 +37,8 @@ To install ckanext-glab:
     git clone https://github.com/gislab-augsburg/ckanext-glab.git
     cd ckanext-glab
     pip install -e .
-	pip install -r requirements.txt
 
-3. Add `glab` to the `ckan.plugins` setting in your CKAN
+3. Add `gdpr` to the `ckan.plugins` setting in your CKAN
    config file (by default the config file is located at
    `/etc/ckan/default/ckan.ini`).
 
@@ -60,12 +50,6 @@ To install ckanext-glab:
 ## Config settings
 
 None at present
-
-**TODO:** Document any optional config settings here. For example:
-
-	# The minimum number of hours to wait before re-checking a resource
-	# (optional, default: 24).
-	ckanext.glab.some_setting = some_default_value
 
 
 ## Developer installation

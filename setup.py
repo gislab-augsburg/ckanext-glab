@@ -16,9 +16,9 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='0.0.1',
+    version='1.0.0',
 
-    description='''learning, testing ckan plugin development''',
+    description='''GDPR functions, prevent user data being displayed for non-admins''',
     long_description=long_description,
     long_description_content_type="text/markdown",
 
@@ -46,11 +46,12 @@ setup(
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
     ],
 
 
     # What does your project relate to?
-    keywords='''CKAN learn, test, glab, gislab augsburg''',
+    keywords='''GDPR, DSGVO, user_list, user_show, user''',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
@@ -84,7 +85,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        glab=ckanext.glab.plugin:MyCoolPlugin
+        gdpr=ckanext.glab.plugin:GDPR_Plugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
