@@ -6,6 +6,7 @@ Ckanext-glab provides functionality to GDPR regulations with its module gdpr:
 - API access on user_list und user_show is limited to system and organization admins. 
 - GUI access user list, user details and user activity is limited to system and organization admins. 
 - API user_show, GUI user details and user activity is still available for a user's own account.
+
 Organinization admins need access for user management of their organizations.
 
 Most of the code is extracted from https://github.com/qld-gov-au/ckanext-qgov.
