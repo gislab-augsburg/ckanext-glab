@@ -1,31 +1,36 @@
-import ckan.plugins as plugins
-import ckan.plugins.toolkit as toolkit
-from flask import Blueprint
-from ckanext.glab.controller import MyLogic
+import ckan.plugins as p
+from ckanext.spatial.interfaces import ISpatialHarvester
 
+class LHM_GP_Harvester(p.SingletonPlugin):
 
-class MyCoolPlugin(plugins.SingletonPlugin):
-    plugins.implements(plugins.IConfigurer)
-    plugins.implements(plugins.IBlueprint)
+    p.implements(ISpatialHarvester, inherit=True)
 
-    # IConfigurer
+    def get_package_dict(self, context, data_dict):
 
-    def update_config(self, config_):
-        toolkit.add_template_directory(config_, 'templates/cool_temp')
-        toolkit.add_public_directory(config_, 'public/cool_static')
+        package_dict = data_dict['package_dict']
 
-    
-    def get_blueprint(self):
-        
-        blueprint = Blueprint(self.name, self.__module__)        
+        print('MB_edit_03__individual-name:')
+        print(iso_values['responsible-organisation'][0]['individual-name'])
+        print('MB_edit_03__update_frequ:')
+        print(iso_values['frequency-of-update'])
 
-        blueprint.add_url_rule(
-            u'/cool_plugin/do_something',
-            u'do_something',
-            MyLogic.do_something,
-            methods=['GET']
+        package_dict['extras'].append(
+            {'key': 'positional_accuracy', 'value': 'tachymeter'}
         )
 
-        return blueprint
+        package_dict['schema'] = 'baug'
+        package_dict['author'] = iso_values['responsible-organisation'][0]['individual-name']
+        package_dict['author_email'] = iso_values['responsible-organisation'][0]['contact-info']['email']
+        package_dict['ext_org'] = 'TBA'
+        package_dict['timeliness'] = 'auf_anforderung'
+        package_dict['geometry_type'] = 'point'
+        package_dict['archive'] = 'noch_offen'
+        package_dict['fachverfahren'] = 'alle_mit_geoinfoweb'
+        package_dict['geoinfoweb'] = 'alle_nutzer'
+        package_dict['internet_publish'] = 'backend'
+        package_dict['datenabgabe_extern_mit_auftrag'] = 'yes'
+        package_dict['open_data'] = 'no'
+
+        return package_dict
 
 

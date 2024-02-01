@@ -18,7 +18,7 @@ setup(
     # http://packaging.python.org/en/latest/tutorial.html#version
     version='0.0.1',
 
-    description='''learning, testing ckan plugin development''',
+    description='''learning, testing ckan plugin development, extending ckanext-spatial csw harvester''',
     long_description=long_description,
     long_description_content_type="text/markdown",
 
@@ -46,6 +46,7 @@ setup(
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
     ],
 
 
@@ -84,7 +85,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        glab=ckanext.glab.plugin:MyCoolPlugin
+        glab=ckanext.glab.plugin:LHM_GP_Harvester
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
